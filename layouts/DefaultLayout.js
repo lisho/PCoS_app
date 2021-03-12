@@ -16,15 +16,20 @@ function DefaultLayout({children}) {
                 <Sidebar></Sidebar>
                 
                 <main >
-                    {children}
 
+                    <div className={styles.mainContenedor}>
+                        
+                        {children}
+
+                    </div>
+                    
                     <footer className={styles.footer}>
                        <h5>Este es el otro pie de página</h5>
                     </footer>
                 </main>
-
                
             </div>
+
         </div>
     )
 }

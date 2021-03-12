@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useState } from "react";
 import {
     ProSidebar,
     Menu,
@@ -14,6 +15,12 @@ import { FaTachometerAlt, FaGem, FaList, FaGithub, FaRegLaughWink, FaHeart } fro
 import 'react-pro-sidebar/dist/css/styles.css';
 
 const Sidebar = ({ image, collapsed, rtl, toggled, handleToggleSidebar }) => {
+
+  const [sidebarState, setSidebarState] = useState({
+    collapsed: typeof collapsed === 'undefined' ? false : collapsed,
+/*     rtl: typeof rtl === 'undefined' ? false : rtl, */
+    toggled: typeof toggled === 'undefined' ? false : toggled,
+  });
 
   return (
   
@@ -44,17 +51,29 @@ const Sidebar = ({ image, collapsed, rtl, toggled, handleToggleSidebar }) => {
             <SidebarContent id="sidebarcontent">
                 <Menu iconShape="square">
                     <MenuItem icon={<FaGem />}>Dashboard</MenuItem>
+
                     <SubMenu title="Components" icon={<FaHeart />}>
+
                         <MenuItem icon={<FaGithub />}>
                             <Link href="/">
                                 <a>Home</a>
                             </Link>
                         </MenuItem>
+
+                        <MenuItem>
+                            <Link href="/usuarios">
+                                <a>Usuarios</a>
+                            </Link>
+                        </MenuItem>
+
                         <MenuItem>
                             <Link href="/about">
-                                <a>About</a>
-                            </Link></MenuItem>
+                                <a>Sobre nosotros</a>
+                            </Link>
+                        </MenuItem>
+
                     </SubMenu>
+
                 </Menu>
                 
             </SidebarContent>
@@ -62,6 +81,16 @@ const Sidebar = ({ image, collapsed, rtl, toggled, handleToggleSidebar }) => {
             <SidebarFooter id="sidebarfooter" style={{ textAlign: 'center' }}>
              Este es el pie
             </SidebarFooter>
+
+            <div
+            className="overlay"
+            onClick={handleToggleSidebar}
+            onKeyPress={handleToggleSidebar}
+            role="button"
+            tabIndex={0}
+            aria-label="overlay"
+            />
+
         </ProSidebar>
  
   );
