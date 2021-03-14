@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div >
       
-        <Titulo>Index</Titulo>
+        <Titulo>Home</Titulo>
         <SubTitulo>Subtitulo de la página</SubTitulo>
         
     </div>
