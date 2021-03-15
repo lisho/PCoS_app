@@ -1,14 +1,14 @@
 # Dockerfile
 
 # base image
-FROM node:alpine
+FROM node:15
 
 # create & set working directory
-RUN mkdir -p /usr/src
-WORKDIR /usr/src
+#RUN mkdir -p /usr/app
+WORKDIR /app
 
 # copy source files
-COPY . /usr/src
+#COPY . /usr/app
 
 # install dependencies
 RUN npm install
@@ -27,3 +27,7 @@ CMD npm run dev
 
 # REFERENCIAS
     # https://medium.com/swlh/dockerize-your-next-js-application-91ade32baa6
+    # https://openwebinars.net/blog/que-es-dockerfile/
+    # https://docs.docker.com/compose/compose-file/compose-file-v3/
+    # https://github.com/klosowsk/Docker-React-ExpressAPI-MySQL/blob/master/docker-compose.yml
+    # https://dev.to/azure/desarrollo-de-aplicaciones-node-js-y-express-js-con-docker-4agm
