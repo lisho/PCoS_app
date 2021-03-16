@@ -67,6 +67,12 @@ const Sidebar = ({ image, collapsed, rtl, toggled, handleToggleSidebar }) => {
                         </MenuItem>
 
                         <MenuItem>
+                            <Link href="/ciudadanos">
+                                <a>Ciudadanos</a>
+                            </Link>
+                        </MenuItem>
+
+                        <MenuItem>
                             <Link href="/about">
                                 <a>Sobre nosotros</a>
                             </Link>

@@ -1,15 +1,15 @@
 import SubTitulo from '../../components/titulos/SubTitulo'
 import Titulo from '../../components/titulos/Titulo'
 
-function Usuarios({users}) {
+function Ciudadanos({ciudadanos}) {
     return (
         <div>
-            <Titulo>Usuarios</Titulo>
+            <Titulo>Ciudadanos</Titulo>
             <SubTitulo>Subtitulo de la página</SubTitulo>
             <div>
                 <ul>
-                    {users.map((user) => (
-                        <li>{user.nombre}</li>
+                    {ciudadanos.map(({nombre, apellidos, dni}) => (
+                        <li> --&gt; {nombre} {apellidos} - ({dni})</li>
                     ))}
                 </ul>
             </div>
@@ -21,15 +21,15 @@ export async function getStaticProps() {
     // Call an external API endpoint to get posts.
     // You can use any data fetching library
     const res = await fetch('http://api:3030/api/ciudadanos')
-    const users = await res.json()
-    console.log(users)
-    // By returning { props: users }, the Blog component
+    const ciudadanos = await res.json()
+    console.log(ciudadanos)
+    // By returning { props: ciudadanos }, the Blog component
     // will receive `posts` as a prop at build time
     return {
       props: {
-        users,
+        ciudadanos,
       },
     }
 }
 
-export default Usuarios
+export default Ciudadanos;
